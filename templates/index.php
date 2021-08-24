@@ -1,4 +1,4 @@
-<h1>TeleLog</h1>
+<h1><?php echo __('TeleLog', 'telelog'); ?></h1>
 <form action="options.php" method="post">
     <?php
     settings_fields('telelog_options');

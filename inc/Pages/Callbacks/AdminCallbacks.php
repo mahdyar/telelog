@@ -39,7 +39,7 @@ class AdminCallbacks extends BaseController
     }
     public function api_settings_text()
     {
-        echo '<p>Set your Telegram bot token and your chat id which can be either your own user id or a channel username with an at sign. (<a href="https://github.com/mahdyar/telelog/tree/main#set-up" target="_blank">Learn more</a>)</p>';
+        echo '<p>' . __('Set your Telegram bot token and your chat id which can be either your own user id or a channel username with an at sign.', 'telelog') . '(<a href="https://github.com/mahdyar/telelog/tree/main#set-up" target="_blank">' . __('Learn more', 'telelog') . '</a>)</p>';
     }
 
     public function telelog_api_key()
@@ -56,14 +56,14 @@ class AdminCallbacks extends BaseController
 
     public function hooks_settings_text()
     {
-        echo '<p>Choose on which hooks should TeleLog send you a message.</p>';
+        echo '<p>' . __('Choose on which hooks should TeleLog send you a message.', 'telelog') . '</p>';
     }
     public function telelog_on_post_update()
     {
         $checked = esc_attr(get_option('telelog_on_post_update'));
 
         $html = '<input type="checkbox" id="on_post_update" name="telelog_on_post_update" value="1"' . checked(1, $checked, false) . '/>';
-        $html .= '<label for="on_post_update">Let you know when a post is updated.</label>';
+        $html .= '<label for="on_post_update">' . __('Let you know when a post is updated.', 'telelog') . '</label>';
 
         echo $html;
     }
@@ -72,7 +72,7 @@ class AdminCallbacks extends BaseController
         $checked = esc_attr(get_option('telelog_on_post_publish'));
 
         $html = '<input type="checkbox" id="on_post_publish" name="telelog_on_post_publish" value="1"' . checked(1, $checked, false) . '/>';
-        $html .= '<label for="on_post_publish">Let you know when a post is published.</label>';
+        $html .= '<label for="on_post_publish">' . __('Let you know when a post is published.', 'telelog') . '</label>';
 
         echo $html;
     }

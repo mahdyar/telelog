@@ -45,14 +45,14 @@ class Admin
         register_setting('telelog_options', 'telelog_on_post_publish', array($this->callbacks, 'sanitize_on_post_publish'));
         register_setting('telelog_options', 'telelog_on_post_update', array($this->callbacks, 'sanitize_on_post_update'));
 
-        add_settings_section('api_settings', 'Settings', array($this->callbacks, 'api_settings_text'), 'telelog');
-        add_settings_section('hooks_settings', 'Hooks', array($this->callbacks, 'hooks_settings_text'), 'telelog');
+        add_settings_section('api_settings', __('Settings', 'telelog'), array($this->callbacks, 'api_settings_text'), 'telelog');
+        add_settings_section('hooks_settings', __('Hooks', 'telelog'), array($this->callbacks, 'hooks_settings_text'), 'telelog');
 
-        add_settings_field('telelog_api_key', 'API Key', array($this->callbacks, 'telelog_api_key'), 'telelog', 'api_settings');
+        add_settings_field('telelog_api_key', __('API Key', 'telelog'), array($this->callbacks, 'telelog_api_key'), 'telelog', 'api_settings');
         add_settings_field('telelog_chat_id', 'Chat ID', array($this->callbacks, 'telelog_chat_id'), 'telelog', 'api_settings');
 
-        add_settings_field('telelog_on_post_publish', 'Post Publish', array($this->callbacks, 'telelog_on_post_publish'), 'telelog', 'hooks_settings');
-        add_settings_field('telelog_on_post_update', 'Post Update', array($this->callbacks, 'telelog_on_post_update'), 'telelog', 'hooks_settings');
+        add_settings_field('telelog_on_post_publish', __('Post Publish', 'telelog'), array($this->callbacks, 'telelog_on_post_publish'), 'telelog', 'hooks_settings');
+        add_settings_field('telelog_on_post_update', __('Post Update', 'telelog'), array($this->callbacks, 'telelog_on_post_update'), 'telelog', 'hooks_settings');
 
         if (get_option('telelog_on_post_publish') === false)
             update_option('telelog_on_post_publish', '1');
