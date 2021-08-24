@@ -35,7 +35,7 @@ class Admin
      */
     public function add_admin_pages()
     {
-        add_menu_page('TeleLog Plugin', 'TeleLog', 'manage_options', 'telelog', array($this->callbacks, 'admin_index'), 'dashicons-megaphone', 110);
+        add_menu_page('TeleLog Plugin', __('TeleLog', 'telelog'), 'manage_options', 'telelog', array($this->callbacks, 'admin_index'), 'dashicons-megaphone', 110);
     }
 
     public function register_custom_fields()
