@@ -1,0 +1,29 @@
+{
+  "name": "mahdyar/telelog",
+  "description": "Keep track of everything happening on your WordPress in Telegram",
+  "keywords": [
+    "telegram",
+    "logging",
+    "wordpress",
+    "wp",
+    "log",
+    "wordpress log"
+  ],
+  "type": "project",
+  "license": "GPL",
+  "autoload": {
+    "psr-4": {
+      "Telelog\\Inc\\": "inc/"
+    }
+  },
+  "homepage": "https://github.com/mahdyar/telelog",
+  "authors": [
+    {
+      "name": "Mahdyar Hasanpour",
+      "email": "hasanpour@mahdyar.me",
+      "homepage": "https://mahdyar.me"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {}
+}
