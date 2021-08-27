@@ -45,7 +45,7 @@ We need help translating TeleLog, feel free to contribute to our
 1. Search for 'TeleLog'
 1. Install and activate the TeleLog plugin
 
-=== Install WP Activity Log manually ===
+=== Install TeleLog manually ===
 
 1. Upload the `telelog` directory to the `/wp-content/plugins/` directory
 1. Activate the TeleLog plugin from the 'Plugins' menu in WordPress
