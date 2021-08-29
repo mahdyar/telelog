@@ -17,5 +17,6 @@ class Deactivate
         delete_option('telelog_on_post_update');
         delete_option('telelog_on_post_publish');
         delete_option('telelog_on_post_comment');
+        delete_option('telelog_on_login_fail');
     }
 }
