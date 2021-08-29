@@ -25,6 +25,6 @@ class LoginFail extends Telegram
     function login_fail($username)
     {
         $ip = $this->get_client_ip();
-        $this->send_message("❗️Login failed for user: <code>$username</code>\n\n🌐 IP: $ip");
+        $this->send_message("❗️Login failed for user: <code>$username</code>\n\n#️⃣ #" . __FUNCTION__ . "\n\n🌐 IP: $ip");
     }
 }
