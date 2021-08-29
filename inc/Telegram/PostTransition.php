@@ -29,9 +29,9 @@ class PostTransition extends Telegram
         $email = get_the_author_meta('user_email', $post->post_author);
         if ($new_status == 'publish') {
             if ($old_status !== "publish" && $this->onPostPublish === '1') {
-                $this->alert(__('Post published', 'telelog'), $post->ID, null, __FUNCTION__, $author, $this->get_client_ip(), $email);
+                $this->alert(__('Post published', 'telelog'), $post->ID, null, 'post_publish', $author, $this->get_client_ip(), $email);
             } else if ($old_status === "publish" && $this->onPostUpdate === '1') {
-                $this->alert(__('Post updated', 'telelog'), $post->ID, null, __FUNCTION__, $author, $this->get_client_ip(), $email);
+                $this->alert(__('Post updated', 'telelog'), $post->ID, null, 'post_update', $author, $this->get_client_ip(), $email);
             }
         }
     }
