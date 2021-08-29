@@ -16,5 +16,6 @@ class Deactivate
         delete_option('telelog_chat_id');
         delete_option('telelog_on_post_update');
         delete_option('telelog_on_post_publish');
+        delete_option('telelog_on_post_comment');
     }
 }

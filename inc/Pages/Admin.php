@@ -44,6 +44,7 @@ class Admin
         register_setting('telelog_options', 'telelog_chat_id', array($this->callbacks, 'sanitize_chat_id'));
         register_setting('telelog_options', 'telelog_on_post_publish', array($this->callbacks, 'sanitize_on_post_publish'));
         register_setting('telelog_options', 'telelog_on_post_update', array($this->callbacks, 'sanitize_on_post_update'));
+        register_setting('telelog_options', 'telelog_on_post_comment', array($this->callbacks, 'sanitize_on_post_comment'));
 
         add_settings_section('api_settings', __('Settings', 'telelog'), array($this->callbacks, 'api_settings_text'), 'telelog');
         add_settings_section('hooks_settings', __('Hooks', 'telelog'), array($this->callbacks, 'hooks_settings_text'), 'telelog');
@@ -53,5 +54,6 @@ class Admin
 
         add_settings_field('telelog_on_post_publish', __('Post Publish', 'telelog'), array($this->callbacks, 'telelog_on_post_publish'), 'telelog', 'hooks_settings');
         add_settings_field('telelog_on_post_update', __('Post Update', 'telelog'), array($this->callbacks, 'telelog_on_post_update'), 'telelog', 'hooks_settings');
+        add_settings_field('telelog_on_post_comment', __('New comment', 'telelog'), array($this->callbacks, 'telelog_on_post_comment'), 'telelog', 'hooks_settings');
     }
 }
