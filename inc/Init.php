@@ -24,6 +24,7 @@ final class Init
             // Hooks
             Telegram\PostTransition::class,
             Telegram\PostComment::class,
+            Telegram\LoginFail::class,
         ];
     }
 
