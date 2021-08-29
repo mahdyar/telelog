@@ -33,4 +33,43 @@ class Telegram
         $url = $this->api_url . 'sendMessage?chat_id=' . $this->chat_id . '&text=' . urlencode($message) . '&parse_mode=' . $parse_mode;
         return $this->get_contents($url);
     }
+    public function alert($title, $postID, $content = null, $function, $author, $ip = '', $email = '')
+    {
+        $postTitle = get_the_title($postID);
+        $postURL = get_permalink($postID);
+
+        $alert['action'] = "❕ $title: <a href='$postURL'>$postTitle</a>";
+        $alert['content'] = $content !== null ? "$content[0]\n\n$content[1]" : '';
+        $alert['tag'] = "#️⃣ #$function";
+        $alert['by'] = "👤 By: $author ($ip) - $email";
+
+        $message = '';
+        foreach ($alert as $section) {
+            if ($section !== '')
+                $message .= "$section\n\n";
+        }
+
+        $this->send_message($message);
+    }
+    public function get_client_ip()
+    {
+        $ipaddress = '';
+        if (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))
+            $ipaddress = $_SERVER["HTTP_CF_CONNECTING_IP"];
+        else if (isset($_SERVER['HTTP_CLIENT_IP']))
+            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+        else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        else if (isset($_SERVER['HTTP_X_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+        else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        else if (isset($_SERVER['HTTP_FORWARDED']))
+            $ipaddress = $_SERVER['HTTP_FORWARDED'];
+        else if (isset($_SERVER['REMOTE_ADDR']))
+            $ipaddress = $_SERVER['REMOTE_ADDR'];
+        else
+            $ipaddress = 'UNKNOWN IP';
+        return $ipaddress;
+    }
 }
