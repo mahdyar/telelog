@@ -20,7 +20,10 @@ final class Init
             Pages\Admin::class,
             Base\Enqueue::class,
             Base\SettingsLinks::class,
+
+            // Hooks
             Telegram\PostTransition::class,
+            Telegram\PostComment::class,
         ];
     }
 

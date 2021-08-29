@@ -37,6 +37,11 @@ class AdminCallbacks extends BaseController
     {
         return $input;
     }
+
+    public function sanitize_on_post_comment($input)
+    {
+        return $input;
+    }
     public function api_settings_text()
     {
         $html = '<p>' . __('Set your Telegram bot token and your chat id which can be either your own user id or a channel username with an at sign.', 'telelog') . '  (<a href="https://github.com/mahdyar/telelog/tree/main#set-up" target="_blank">' . __('Learn more', 'telelog') . '</a>)</p>';
@@ -122,6 +127,26 @@ class AdminCallbacks extends BaseController
 
         $html = '<input type="checkbox" id="on_post_publish" name="telelog_on_post_publish" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_post_publish">' . __('Let you know when a post is published.', 'telelog') . '</label>';
+
+        echo wp_kses($html, array(
+            'input' => array(
+                'type' => array(),
+                'id' => array(),
+                'name' => array(),
+                'value' => array(),
+                'checked' => array()
+            ),
+            'label' => array(
+                'for' => array()
+            )
+        ));
+    }
+    public function telelog_on_post_comment()
+    {
+        $checked = get_option('telelog_on_post_comment');
+
+        $html = '<input type="checkbox" id="on_post_comment" name="telelog_on_post_comment" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html .= '<label for="on_post_comment">' . __('Let you know when a comment is posted.', 'telelog') . '</label>';
 
         echo wp_kses($html, array(
             'input' => array(

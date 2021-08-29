@@ -92,3 +92,11 @@ msgstr ""
 #: inc/Telegram/PostTransition.php:36
 msgid "Post updated"
 msgstr ""
+
+#: inc/Telegram/PostComment.php:30
+msgid "New comment"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:144
+msgid "Let you know when a comment is posted."
+msgstr ""
