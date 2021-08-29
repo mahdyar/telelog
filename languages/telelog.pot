@@ -100,3 +100,11 @@ msgstr ""
 #: inc/Pages/Callbacks/AdminCallbacks.php:144
 msgid "Let you know when a comment is posted."
 msgstr ""
+
+#: inc/Pages/Admin.php:59
+msgid "Login fail"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:173
+msgid "Let you know when an attemp to login is failed."
+msgstr ""

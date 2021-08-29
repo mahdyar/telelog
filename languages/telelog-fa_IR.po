@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-24T11:01:10+00:00\n"
-"PO-Revision-Date: 2021-08-29 14:19+0430\n"
+"PO-Revision-Date: 2021-08-29 16:05+0430\n"
 "X-Generator: Poedit 3.0\n"
 "X-Domain: telelog\n"
 "Last-Translator: \n"
@@ -104,3 +104,11 @@ msgstr "کامنت جدید"
 #: inc/Pages/Callbacks/AdminCallbacks.php:144
 msgid "Let you know when a comment is posted."
 msgstr "وقتی یک کامنت گذاشته شد به من اطلاع بده."
+
+#: inc/Pages/Admin.php:59
+msgid "Login fail"
+msgstr "ورود ناموفق"
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:173
+msgid "Let you know when an attemp to login is failed."
+msgstr "وقتی یک ورود ناموفق اتفاق افتاد به من اطلاع بده."
