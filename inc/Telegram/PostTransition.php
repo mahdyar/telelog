@@ -25,17 +25,13 @@ class PostTransition extends Telegram
     }
     function post_transition($new_status, $old_status, $post = null)
     {
+        $author = get_the_author_meta('user_login', $post->post_author);
+        $email = get_the_author_meta('user_email', $post->post_author);
         if ($new_status == 'publish') {
-            $url = get_permalink($post->ID);
-            $post_author_string = "\n\n👤 " . __('By', 'telelog') . ": #" . get_the_author_meta('user_login', $post->post_author);
             if ($old_status !== "publish" && $this->onPostPublish === '1') {
-                $text = '❕' . __('Post published', 'telelog') . ': <a href="' . $url . '">' . $post->post_title . '</a>' . "\n\n#️⃣ #publish_post";
-                $text .=  $post_author_string;
-                $this->send_message($text);
+                $this->alert(__('Post published', 'telelog'), $post->ID, null, __FUNCTION__, $author, $this->get_client_ip(), $email);
             } else if ($old_status === "publish" && $this->onPostUpdate === '1') {
-                $text = '❕' . __('Post updated', 'telelog') . ': <a href="' . $url . '">' . $post->post_title . '</a>' . "\n\n#️⃣ #update_post";
-                $text .=  $post_author_string;
-                $this->send_message($text);
+                $this->alert(__('Post updated', 'telelog'), $post->ID, null, __FUNCTION__, $author, $this->get_client_ip(), $email);
             }
         }
     }
