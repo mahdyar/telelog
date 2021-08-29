@@ -17,6 +17,8 @@ This plugin is still under development and more hooks will be added soon, but fo
 
 * Post publish
 * Post update
+* New comment
+* Login fail
 
 ### Set up
 1. Create a new Telegram bot. ([Learn more](https://core.telegram.org/bots#3-how-do-i-create-a-bot))

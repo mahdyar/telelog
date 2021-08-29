@@ -6,8 +6,6 @@
 
 namespace Telelog\Inc\Telegram;
 
-use Exception;
-
 class Telegram
 {
     private $api_key;
