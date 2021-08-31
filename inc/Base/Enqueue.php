@@ -16,10 +16,15 @@ class Enqueue extends BaseController
      */
     public function register()
     {
-        // add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_styles'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
     }
-    function enqueue()
+    function enqueue_scripts()
     {
-        // wp_enqueue_script('telelog_scripts', $this->plugin_url . 'assets/scripts.js', __FILE__);
+        wp_enqueue_script('telelog_scripts', $this->plugin_url . 'assets/scripts.js', __FILE__);
+    }
+    function enqueue_styles()
+    {
+        wp_enqueue_style('telelog_styles', $this->plugin_url . 'assets/styles.css', __FILE__);
     }
 }
