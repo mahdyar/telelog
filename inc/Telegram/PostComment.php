@@ -24,8 +24,6 @@ class PostComment extends Telegram
     }
     function post_comment($comment_id, $comment_approved, $comment_data)
     {
-        if ($comment_approved === 0) {
-            $this->alert(__('New comment', 'telelog'), $comment_data['comment_post_ID'], array('💬', $comment_data['comment_content']), __FUNCTION__, $comment_data['comment_author'], $comment_data['comment_author_IP'], $comment_data['comment_author_email']);
-        }
+        $this->alert(__('New comment', 'telelog'), $comment_data['comment_post_ID'], array('💬', $comment_data['comment_content']), __FUNCTION__, $comment_data['comment_author'], $comment_data['comment_author_IP'], $comment_data['comment_author_email']);
     }
 }
