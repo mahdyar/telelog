@@ -31,7 +31,7 @@ class Telegram
         $url = $this->api_url . 'sendMessage?chat_id=' . $this->chat_id . '&text=' . urlencode($message) . '&parse_mode=' . $parse_mode;
         return $this->get_contents($url);
     }
-    public function alert($title, $postID, $content = null, $function, $author, $ip = '', $email = '')
+    public function alert($title, $postID, $content = null, $function, $author = null, $ip, $email = null)
     {
         $postTitle = get_the_title($postID);
         $postURL = get_permalink($postID);
@@ -39,7 +39,7 @@ class Telegram
         $alert['action'] = "❕ $title: <a href='$postURL'>$postTitle</a>";
         $alert['content'] = $content !== null ? "$content[0]\n\n$content[1]" : '';
         $alert['tag'] = "#️⃣ #$function";
-        $alert['by'] = "👤 By: $author ($ip) - $email";
+        $alert['by'] = ($author != null && $email != null) ? "👤 By: $author ($ip) - $email" : "👤 By: $ip";
 
         $message = '';
         foreach ($alert as $section) {
