@@ -19,7 +19,7 @@ class LoginFail extends Telegram
     }
     public function register()
     {
-        if ($this->onLoginFail == '1')
+        if ($this->onLoginFail === '1')
             add_action('wp_login_failed', array($this, 'login_fail'), 10, 1);
     }
     function login_fail($username)
