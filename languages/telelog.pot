@@ -108,3 +108,11 @@ msgstr ""
 #: inc/Pages/Callbacks/AdminCallbacks.php:173
 msgid "Let you know when an attemp to login is failed."
 msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:101
+msgid "Enable all"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:101
+msgid "Disable all"
+msgstr ""

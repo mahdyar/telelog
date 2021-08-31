@@ -98,10 +98,17 @@ class AdminCallbacks extends BaseController
     public function hooks_settings_text()
     {
         $html = '<p>' . __('Choose on which hooks should TeleLog send you a message.', 'telelog') . '</p>';
+        $html .= '<ul><li><button id="telelog_enable" class="button button-secondary">' . __('Enable all', 'telelog') . '</button></li><li><button id="telelog_disable" class="button button-secondary">' . __('Disable all', 'telelog') . '</button></li></ul>';
         echo wp_kses(
             $html,
             array(
                 'p' => array(),
+                'ul' => array(),
+                'li' => array(),
+                'button' => array(
+                    'id' => array(),
+                    'class' => array()
+                ),
             )
         );
     }
