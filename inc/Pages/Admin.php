@@ -12,11 +12,11 @@ class Admin
 {
     public $callbacks;
 
-    public $settings = array();
+    private $settings = array();
 
-    public $sections = array();
+    private $sections = array();
 
-    public $fields = array();
+    private $fields = array();
 
     private $page = 'telelog';
 
