@@ -19,33 +19,11 @@ class AdminCallbacks extends BaseController
         require_once $this->plugin_path . 'templates/index.php';
     }
 
-    public function sanitize_api_key($api_key)
-    {
-        return $api_key;
-    }
-
-    public function sanitize_chat_id($chat_id)
-    {
-        return $chat_id;
-    }
-    public function sanitize_on_post_update($input)
+    public function telelog_custom_fields_sanatize($input)
     {
         return $input;
     }
 
-    public function sanitize_on_post_publish($input)
-    {
-        return $input;
-    }
-
-    public function sanitize_on_post_comment($input)
-    {
-        return $input;
-    }
-    public function sanitize_on_login_fail($input)
-    {
-        return $input;
-    }
     public function api_settings_text()
     {
         $html = '<p>' . __('Set your Telegram bot token and your chat id which can be either your own user id or a channel username with an at sign.', 'telelog') . '  (<a href="https://github.com/mahdyar/telelog/tree/main#set-up" target="_blank">' . __('Learn more', 'telelog') . '</a>)</p>';

@@ -18,6 +18,8 @@ class Admin
 
     public $fields = array();
 
+    private $page = 'telelog';
+
     /**
      * Add TeleLog to the admin menu
      * @return void
@@ -25,6 +27,12 @@ class Admin
     public function register()
     {
         $this->callbacks = new AdminCallbacks();
+
+        $this->set_settings();
+        $this->set_sections();
+        $this->set_fields();
+
+
         add_action('admin_menu', array($this, 'add_admin_pages'));
         add_action('admin_init', array($this, 'register_custom_fields'));
     }
@@ -40,22 +48,127 @@ class Admin
 
     public function register_custom_fields()
     {
-        register_setting('telelog_options', 'telelog_api_key', array($this->callbacks, 'sanitize_api_key'));
-        register_setting('telelog_options', 'telelog_chat_id', array($this->callbacks, 'sanitize_chat_id'));
-        register_setting('telelog_options', 'telelog_on_post_publish', array($this->callbacks, 'sanitize_on_post_publish'));
-        register_setting('telelog_options', 'telelog_on_post_update', array($this->callbacks, 'sanitize_on_post_update'));
-        register_setting('telelog_options', 'telelog_on_post_comment', array($this->callbacks, 'sanitize_on_post_comment'));
-        register_setting('telelog_options', 'telelog_on_login_fail', array($this->callbacks, 'sanitize_on_login_fail'));
+        // register settings
+        foreach ($this->settings as $setting) {
+            register_setting($setting['option_group'], $setting['option_name'], (isset($setting['callback']) ? $setting['callback'] : ''));
+        }
 
-        add_settings_section('api_settings', __('Settings', 'telelog'), array($this->callbacks, 'api_settings_text'), 'telelog');
-        add_settings_section('hooks_settings', __('Hooks', 'telelog'), array($this->callbacks, 'hooks_settings_text'), 'telelog');
+        // add settings sections
+        foreach ($this->sections as $section) {
+            add_settings_section($section['id'], $section['title'], (isset($section['callback']) ? $section['callback'] : ''), $section['page']);
+        }
 
-        add_settings_field('telelog_api_key', __('API Key', 'telelog'), array($this->callbacks, 'telelog_api_key'), 'telelog', 'api_settings');
-        add_settings_field('telelog_chat_id', __('Chat ID', 'telelog'), array($this->callbacks, 'telelog_chat_id'), 'telelog', 'api_settings');
+        // add settings fields
+        foreach ($this->fields as $field) {
+            add_settings_field($field['id'], $field['title'], (isset($field['callback']) ? $field['callback'] : ''), $field['page'], $field['section'], (isset($field['args']) ? $field['args'] : ''));
+        }
+    }
 
-        add_settings_field('telelog_on_post_publish', __('Post Publish', 'telelog'), array($this->callbacks, 'telelog_on_post_publish'), 'telelog', 'hooks_settings');
-        add_settings_field('telelog_on_post_update', __('Post Update', 'telelog'), array($this->callbacks, 'telelog_on_post_update'), 'telelog', 'hooks_settings');
-        add_settings_field('telelog_on_post_comment', __('New comment', 'telelog'), array($this->callbacks, 'telelog_on_post_comment'), 'telelog', 'hooks_settings');
-        add_settings_field('telelog_on_login_fail', __('Login fail', 'telelog'), array($this->callbacks, 'telelog_on_login_fail'), 'telelog', 'hooks_settings');
+    private function set_settings()
+    {
+        $option_group = 'telelog_options';
+        $callback = array($this->callbacks, 'telelog_custom_fields_sanatize');
+
+        $args = array(
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_api_key',
+                'callback' => $callback,
+            ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_chat_id',
+                'callback' => $callback,
+            ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_on_post_publish',
+                'callback' => $callback,
+            ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_on_post_update',
+                'callback' => $callback,
+            ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_on_post_comment',
+                'callback' => $callback,
+            ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_on_login_fail',
+                'callback' => $callback,
+            ),
+        );
+
+        $this->settings = $args;
+    }
+    private function set_sections()
+    {
+        $args = array(
+            array(
+                'id' => 'api_settings',
+                'title' => __('Settings', 'telelog'),
+                'callback' => array($this->callbacks, 'api_settings_text'),
+                'page' => $this->page,
+            ),
+            array(
+                'id' => 'hooks_settings',
+                'title' => __('Hooks', 'telelog'),
+                'callback' => array($this->callbacks, 'hooks_settings_text'),
+                'page' => $this->page,
+            ),
+        );
+
+        $this->sections = $args;
+    }
+    private function set_fields()
+    {
+        $args = array(
+            array(
+                'id' => 'telelog_api_key',
+                'title' => __('API Key', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_api_key'),
+                'page' => $this->page,
+                'section' => 'api_settings'
+            ),
+            array(
+                'id' => 'telelog_chat_id',
+                'title' => __('Chat ID', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_chat_id'),
+                'page' => $this->page,
+                'section' => 'api_settings'
+            ),
+            array(
+                'id' => 'telelog_on_post_publish',
+                'title' => __('Post Publish', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_post_publish'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+            array(
+                'id' => 'telelog_on_post_update',
+                'title' => __('Post Update', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_post_update'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+            array(
+                'id' => 'telelog_on_post_comment',
+                'title' => __('New comment', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_post_comment'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+            array(
+                'id' => 'telelog_on_login_fail',
+                'title' => __('Login fail', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_login_fail'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+        );
+        $this->fields = $args;
     }
 }
