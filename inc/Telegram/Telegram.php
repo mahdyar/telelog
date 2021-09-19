@@ -21,22 +21,19 @@ class Telegram
         $this->chat_id = get_option('telelog_chat_id');
     }
 
-    public function get_contents($url)
+    private function get_contents($url)
     {
         return wp_remote_retrieve_body(wp_remote_get($url));
     }
 
-    public function send_message($message, $parse_mode = 'HTML')
+    private function send_message($message, $parse_mode = 'HTML')
     {
         $url = $this->api_url . 'sendMessage?chat_id=' . $this->chat_id . '&text=' . urlencode($message) . '&parse_mode=' . $parse_mode;
         return $this->get_contents($url);
     }
-    public function alert($title, $postID, $content = null, $function, $author = null, $ip, $email = null)
+    public function alert($title, $content = null, $function, $author = null, $ip, $email = null)
     {
-        $postTitle = get_the_title($postID);
-        $postURL = get_permalink($postID);
-
-        $alert['action'] = "❕ $title: <a href='$postURL'>$postTitle</a>";
+        $alert['action'] = "❕ $title";
         $alert['content'] = $content !== null ? "$content[0]\n\n$content[1]" : '';
         $alert['tag'] = "#️⃣ #$function";
         $alert['by'] = ($author != null && $email != null) ? "👤 By: $author ($ip) - $email" : "👤 By: $ip";

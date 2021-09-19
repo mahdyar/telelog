@@ -28,10 +28,17 @@ class PostTransition extends Telegram
         $author = get_the_author_meta('user_login', $post->post_author);
         $email = get_the_author_meta('user_email', $post->post_author);
         if ($new_status == 'publish') {
+            $postTitle = get_the_title($post->ID);
+            $postURL = get_permalink($post->ID);
+
             if ($old_status !== "publish" && $this->onPostPublish === '1') {
-                $this->alert(__('Post published', 'telelog'), $post->ID, null, 'post_publish', $author, $this->get_client_ip(), $email);
+                $title = __('Post published', 'telelog') . ": <a href='$postURL'>$postTitle</a>";
+
+                $this->alert($title,  null, 'post_publish', $author, $this->get_client_ip(), $email);
             } else if ($old_status === "publish" && $this->onPostUpdate === '1') {
-                $this->alert(__('Post updated', 'telelog'), $post->ID, null, 'post_update', $author, $this->get_client_ip(), $email);
+                $title = __('Post updated', 'telelog') . ": <a href='$postURL'>$postTitle</a>";
+
+                $this->alert($title,  null, 'post_update', $author, $this->get_client_ip(), $email);
             }
         }
     }
