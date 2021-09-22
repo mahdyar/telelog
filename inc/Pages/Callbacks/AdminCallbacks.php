@@ -170,4 +170,24 @@ class AdminCallbacks extends BaseController
             )
         ));
     }
+    public function telelog_on_register_user()
+    {
+        $checked = get_option('telelog_on_register_user');
+
+        $html = '<input type="checkbox" id="on_login_fail" name="telelog_on_register_user" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html .= '<label for="on_register_user">' . __('Let you know when a new user registers.', 'telelog') . '</label>';
+
+        echo wp_kses($html, array(
+            'input' => array(
+                'type' => array(),
+                'id' => array(),
+                'name' => array(),
+                'value' => array(),
+                'checked' => array()
+            ),
+            'label' => array(
+                'for' => array()
+            )
+        ));
+    }
 }

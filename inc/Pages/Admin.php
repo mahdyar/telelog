@@ -100,6 +100,11 @@ class Admin
                 'option_name' => 'telelog_on_login_fail',
                 'callback' => $callback,
             ),
+            array(
+                'option_group' => $option_group,
+                'option_name' => 'telelog_on_register_user',
+                'callback' => $callback,
+            ),
         );
 
         $this->settings = $args;
@@ -165,6 +170,13 @@ class Admin
                 'id' => 'telelog_on_login_fail',
                 'title' => __('Login fail', 'telelog'),
                 'callback' => array($this->callbacks, 'telelog_on_login_fail'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+            array(
+                'id' => 'telelog_on_register_user',
+                'title' => __('User registeration', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_register_user'),
                 'page' => $this->page,
                 'section' => 'hooks_settings'
             ),
