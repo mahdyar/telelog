@@ -20,5 +20,7 @@ class Activate
             update_option('telelog_on_post_comment', '1');
         if (get_option('telelog_on_login_fail') === false)
             update_option('telelog_on_login_fail', '1');
+        if (get_option('telelog_on_register_user') === false)
+            update_option('telelog_on_register_user', '1');
     }
 }
