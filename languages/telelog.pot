@@ -116,3 +116,15 @@ msgstr ""
 #: inc/Pages/Callbacks/AdminCallbacks.php:101
 msgid "Disable all"
 msgstr ""
+
+#: inc/Pages/Admin.php:178
+msgid "User registeration"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:178
+msgid "Let you know when a new user registers."
+msgstr ""
+
+#: inc/Telegram/RegisterUser.php:28
+msgid "New user registered"
+msgstr ""
