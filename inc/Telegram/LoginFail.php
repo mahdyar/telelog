@@ -25,7 +25,7 @@ class LoginFail extends Telegram
     function login_fail($username)
     {
         $ip = $this->get_client_ip();
-
-        $this->alert("Login failed for user: <code>$username</code>", null, __FUNCTION__, null, $ip, null);
+        $title = __('Login fail', 'telelog') . ": <code>$username</code>";
+        $this->alert($title, null, __FUNCTION__, null, $ip, null);
     }
 }
