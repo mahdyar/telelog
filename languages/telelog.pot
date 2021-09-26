@@ -128,3 +128,15 @@ msgstr ""
 #: inc/Telegram/RegisterUser.php:28
 msgid "New user registered"
 msgstr ""
+
+#: inc/Pages/Admin.php:190
+msgid "Theme switch"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:198
+msgid "Let you know when the theme is switched."
+msgstr ""
+
+#: inc/Telegram/ThemeSwitch.php:28
+msgid "Theme switched"
+msgstr ""

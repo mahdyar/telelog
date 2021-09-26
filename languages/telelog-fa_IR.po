@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-24T11:01:10+00:00\n"
-"PO-Revision-Date: 2021-09-22 19:25+0330\n"
+"PO-Revision-Date: 2021-09-26 13:03+0330\n"
 "X-Generator: Poedit 3.0\n"
 "X-Domain: telelog\n"
 "Last-Translator: \n"
@@ -132,3 +132,15 @@ msgstr "وقتی یک کاربر جدید ثبت نام کرد به من اطل�
 #: inc/Telegram/RegisterUser.php:28
 msgid "New user registered"
 msgstr "ثبت نام کاربر جدید"
+
+#: inc/Pages/Admin.php:190
+msgid "Theme switch"
+msgstr "تغییر پوسته"
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:198
+msgid "Let you know when the theme is switched."
+msgstr "وقتی پوسته تغییر کرد به من اطلاع بده."
+
+#: inc/Telegram/ThemeSwitch.php:28
+msgid "Theme switched"
+msgstr "پوسته تغییر کرد"
