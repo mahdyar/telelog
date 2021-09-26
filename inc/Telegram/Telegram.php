@@ -33,7 +33,7 @@ class Telegram
     }
     public function alert($title, $content = null, $function, $author = null, $ip, $email = null)
     {
-        $alert['action'] = "❕ $title";
+        $alert['action'] = "❕$title";
         $alert['content'] = $content !== null ? "$content[0]\n\n$content[1]" : '';
         $alert['tag'] = "#️⃣ #$function";
         $alert['by'] = ($author != null && $email != null) ? "👤 By: $author ($ip) - $email" : "👤 By: $ip";
