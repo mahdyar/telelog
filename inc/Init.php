@@ -26,6 +26,7 @@ final class Init
             Telegram\PostComment::class,
             Telegram\LoginFail::class,
             Telegram\RegisterUser::class,
+            Telegram\ThemeSwitch::class,
         ];
     }
 
