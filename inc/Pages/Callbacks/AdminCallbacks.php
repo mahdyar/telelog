@@ -174,8 +174,28 @@ class AdminCallbacks extends BaseController
     {
         $checked = get_option('telelog_on_register_user');
 
-        $html = '<input type="checkbox" id="on_login_fail" name="telelog_on_register_user" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html = '<input type="checkbox" id="on_register_user" name="telelog_on_register_user" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_register_user">' . __('Let you know when a new user registers.', 'telelog') . '</label>';
+
+        echo wp_kses($html, array(
+            'input' => array(
+                'type' => array(),
+                'id' => array(),
+                'name' => array(),
+                'value' => array(),
+                'checked' => array()
+            ),
+            'label' => array(
+                'for' => array()
+            )
+        ));
+    }
+    public function telelog_on_theme_switch()
+    {
+        $checked = get_option('telelog_on_theme_switch');
+
+        $html = '<input type="checkbox" id="on_theme_switch" name="telelog_on_theme_switch" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html .= '<label for="on_theme_switch">' . __('Let you know when the theme is switched.', 'telelog') . '</label>';
 
         echo wp_kses($html, array(
             'input' => array(

@@ -16,3 +16,4 @@ delete_option('telelog_on_post_publish');
 delete_option('telelog_on_post_comment');
 delete_option('telelog_on_login_fail');
 delete_option('telelog_on_register_user');
+delete_option('telelog_on_theme_switch');
