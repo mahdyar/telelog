@@ -10,7 +10,11 @@ use Telelog\Inc\Pages\Callbacks\AdminCallbacks;
 
 class Admin
 {
-    const custom_fields = [['api_key', ''], ['chat_id', ''], ['on_post_publish', '1'], ['on_post_update', '1'], ['on_post_comment', '1'], ['on_login_fail', '1'], ['on_register_user', '1'], ['on_theme_switch', '1'], ['on_plugin_activate', '1']];
+    const custom_fields = [
+        ['api_key', ''], ['chat_id', ''], ['on_post_publish', '1'],
+        ['on_post_update', '1'], ['on_post_comment', '1'], ['on_login_fail', '1'],
+        ['on_register_user', '1'], ['on_theme_switch', '1'], ['on_plugin_activate', '1'],
+    ];
 
     public $callbacks;
 
