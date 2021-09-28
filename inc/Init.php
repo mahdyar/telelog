@@ -27,6 +27,7 @@ final class Init
             Telegram\LoginFail::class,
             Telegram\RegisterUser::class,
             Telegram\ThemeSwitch::class,
+            Telegram\PluginActivate::class,
         ];
     }
 
