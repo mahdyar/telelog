@@ -6,23 +6,17 @@
 
 namespace Telelog\Inc\Base;
 
+use Telelog\Inc\Pages\Admin;
+
 class Activate
 {
     public static function activate()
     {
         flush_rewrite_rules();
 
-        if (get_option('telelog_on_post_publish') === false)
-            update_option('telelog_on_post_publish', '1');
-        if (get_option('telelog_on_post_update') === false)
-            update_option('telelog_on_post_update', '1');
-        if (get_option('telelog_on_post_comment') === false)
-            update_option('telelog_on_post_comment', '1');
-        if (get_option('telelog_on_login_fail') === false)
-            update_option('telelog_on_login_fail', '1');
-        if (get_option('telelog_on_register_user') === false)
-            update_option('telelog_on_register_user', '1');
-        if (get_option('telelog_on_theme_switch') === false)
-            update_option('telelog_on_theme_switch', '1');
+        foreach (Admin::custom_fields as $custom_field) {
+            if (get_option("telelog_{$custom_field[0]}") === false)
+                update_option("telelog_{$custom_field[0]}", $custom_field[1]);
+        }
     }
 }

@@ -10,6 +10,8 @@ use Telelog\Inc\Pages\Callbacks\AdminCallbacks;
 
 class Admin
 {
+    const custom_fields = [['api_key', ''], ['chat_id', ''], ['on_post_publish', '1'], ['on_post_update', '1'], ['on_post_comment', '1'], ['on_login_fail', '1'], ['on_register_user', '1'], ['on_theme_switch', '1']];
+
     public $callbacks;
 
     private $settings = array();
@@ -69,48 +71,15 @@ class Admin
         $option_group = 'telelog_options';
         $callback = array($this->callbacks, 'telelog_custom_fields_sanatize');
 
-        $args = array(
-            array(
+        $args = array();
+
+        foreach (Admin::custom_fields as $custom_field) {
+            array_push($args, array(
                 'option_group' => $option_group,
-                'option_name' => 'telelog_api_key',
+                'option_name' => "telelog_{$custom_field[0]}",
                 'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_chat_id',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_post_publish',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_post_update',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_post_comment',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_login_fail',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_register_user',
-                'callback' => $callback,
-            ),
-            array(
-                'option_group' => $option_group,
-                'option_name' => 'telelog_on_theme_switch',
-                'callback' => $callback,
-            ),
-        );
+            ));
+        }
 
         $this->settings = $args;
     }
