@@ -90,6 +90,23 @@ class AdminCallbacks extends BaseController
             )
         );
     }
+
+    private function hooks_sanitizer($html)
+    {
+        echo wp_kses($html, array(
+            'input' => array(
+                'type' => array(),
+                'id' => array(),
+                'name' => array(),
+                'value' => array(),
+                'checked' => array()
+            ),
+            'label' => array(
+                'for' => array()
+            )
+        ));
+    }
+
     public function telelog_on_post_update()
     {
         $checked = get_option('telelog_on_post_update');
@@ -97,19 +114,9 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_post_update" name="telelog_on_post_update" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_post_update">' . __('Let you know when a post is updated.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
+
     public function telelog_on_post_publish()
     {
         $checked = get_option('telelog_on_post_publish');
@@ -117,19 +124,9 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_post_publish" name="telelog_on_post_publish" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_post_publish">' . __('Let you know when a post is published.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
+
     public function telelog_on_post_comment()
     {
         $checked = get_option('telelog_on_post_comment');
@@ -137,19 +134,9 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_post_comment" name="telelog_on_post_comment" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_post_comment">' . __('Let you know when a comment is posted.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
+
     public function telelog_on_login_fail()
     {
         $checked = get_option('telelog_on_login_fail');
@@ -157,19 +144,9 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_login_fail" name="telelog_on_login_fail" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_login_fail">' . __('Let you know when an attemp to login is failed.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
+
     public function telelog_on_register_user()
     {
         $checked = get_option('telelog_on_register_user');
@@ -177,19 +154,9 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_register_user" name="telelog_on_register_user" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_register_user">' . __('Let you know when a new user registers.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
+
     public function telelog_on_theme_switch()
     {
         $checked = get_option('telelog_on_theme_switch');
@@ -197,17 +164,6 @@ class AdminCallbacks extends BaseController
         $html = '<input type="checkbox" id="on_theme_switch" name="telelog_on_theme_switch" value="1"' . checked(1, esc_attr($checked), false) . '/>';
         $html .= '<label for="on_theme_switch">' . __('Let you know when the theme is switched.', 'telelog') . '</label>';
 
-        echo wp_kses($html, array(
-            'input' => array(
-                'type' => array(),
-                'id' => array(),
-                'name' => array(),
-                'value' => array(),
-                'checked' => array()
-            ),
-            'label' => array(
-                'for' => array()
-            )
-        ));
+        $this->hooks_sanitizer($html);
     }
 }
