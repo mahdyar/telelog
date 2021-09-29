@@ -140,3 +140,15 @@ msgstr ""
 #: inc/Telegram/ThemeSwitch.php:28
 msgid "Theme switched"
 msgstr ""
+
+#: inc/Pages/Admin.php:166
+msgid "Plugin activation"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:175
+msgid "Let you know when a plugin is activated."
+msgstr ""
+
+#: inc/Telegram/PluginActivate.php:31
+msgid "Plugin activated"
+msgstr ""
