@@ -22,7 +22,7 @@ class PluginActivate extends Telegram
         if ($this->onPluginActivate === '1')
             add_action('activated_plugin', array($this, 'plugin_activate'), 10, 1);
     }
-    function plugin_activate($plugin)
+    public function plugin_activate($plugin)
     {
         $ip = $this->get_client_ip();
         $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin);
