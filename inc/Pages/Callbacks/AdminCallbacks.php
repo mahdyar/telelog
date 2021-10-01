@@ -176,4 +176,14 @@ class AdminCallbacks extends BaseController
 
         $this->hooks_sanitizer($html);
     }
+
+    public function telelog_on_plugin_deactivate()
+    {
+        $checked = get_option('telelog_on_plugin_deactivate');
+
+        $html = '<input type="checkbox" id="on_plugin_deactivate" name="telelog_on_plugin_deactivate" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html .= '<label for="on_plugin_deactivate">' . __('Let you know when a plugin is deactivated.', 'telelog') . '</label>';
+
+        $this->hooks_sanitizer($html);
+    }
 }
