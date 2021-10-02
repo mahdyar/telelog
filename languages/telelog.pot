@@ -152,3 +152,15 @@ msgstr ""
 #: inc/Telegram/PluginActivate.php:31
 msgid "Plugin activated"
 msgstr ""
+
+#: inc/Pages/Admin.php:178
+msgid "Plugin deactivation"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:185
+msgid "Let you know when a plugin is deactivated."
+msgstr ""
+
+#: inc/Telegram/PluginDeactivate.php:31
+msgid "Plugin deactivated"
+msgstr ""
