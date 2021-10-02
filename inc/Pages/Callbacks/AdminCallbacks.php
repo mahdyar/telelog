@@ -42,11 +42,12 @@ class AdminCallbacks extends BaseController
     public function telelog_api_key()
     {
         $value = get_option('telelog_api_key');
-        $html =  '<input class="reqular-text" name="telelog_api_key" type="text" value="' . esc_attr($value) . '" />';
+        $html =  '<input autocomplete="off" class="reqular-text" name="telelog_api_key" type="text" value="' . esc_attr($value) . '" />';
         echo wp_kses(
             $html,
             array(
                 'input' => array(
+                    'autocomplete' => array(),
                     'class' => array(),
                     'name' => array(),
                     'type' => array(),
