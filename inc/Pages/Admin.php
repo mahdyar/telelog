@@ -14,6 +14,7 @@ class Admin
         ['api_key', ''], ['chat_id', ''], ['on_post_publish', '1'],
         ['on_post_update', '1'], ['on_post_comment', '1'], ['on_login_fail', '1'],
         ['on_register_user', '1'], ['on_theme_switch', '1'], ['on_plugin_activate', '1'],
+        ['on_plugin_deactivate', '1'],
     ];
 
     public $callbacks;
@@ -169,6 +170,13 @@ class Admin
                 'id' => 'telelog_on_plugin_activate',
                 'title' => __('Plugin activation', 'telelog'),
                 'callback' => array($this->callbacks, 'telelog_on_plugin_activate'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+            array(
+                'id' => 'telelog_on_plugin_deactivate',
+                'title' => __('Plugin deactivation', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_plugin_deactivate'),
                 'page' => $this->page,
                 'section' => 'hooks_settings'
             ),

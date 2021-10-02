@@ -28,6 +28,7 @@ final class Init
             Telegram\RegisterUser::class,
             Telegram\ThemeSwitch::class,
             Telegram\PluginActivate::class,
+            Telegram\PluginDeactivate::class,
         ];
     }
 
