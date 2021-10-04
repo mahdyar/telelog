@@ -25,7 +25,12 @@ class ThemeSwitch extends Telegram
     public function theme_switch($new_name, $new_theme, $old_theme)
     {
         $ip = $this->get_client_ip();
+
+        $user = wp_get_current_user();
+        $author = $user->user_login;
+        $email = $user->user_email;
+
         $title = __('Theme switched', 'telelog') . ": <b>$new_name</b>";
-        $this->alert($title, null, __FUNCTION__, null, $ip, null);
+        $this->alert($title, null, __FUNCTION__, $author, $ip, $email);
     }
 }
