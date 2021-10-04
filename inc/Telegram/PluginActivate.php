@@ -28,7 +28,11 @@ class PluginActivate extends Telegram
         $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin);
         $plugin_name = $plugin_data['Name'];
 
+        $user = wp_get_current_user();
+        $author = $user->user_login;
+        $email = $user->user_email;
+
         $title = __('Plugin activated', 'telelog') . ": <code>$plugin_name</code>";
-        $this->alert($title, null, __FUNCTION__, null, $ip, null);
+        $this->alert($title, null, __FUNCTION__, $author, $ip, $email);
     }
 }
