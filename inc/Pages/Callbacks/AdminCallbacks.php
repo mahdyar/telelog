@@ -187,4 +187,14 @@ class AdminCallbacks extends BaseController
 
         $this->hooks_sanitizer($html);
     }
+
+    public function telelog_on_woocommerce_order_new()
+    {
+        $checked = get_option('telelog_on_woocommerce_order_new');
+
+        $html = '<input type="checkbox" id="on_woocommerce_order_new" name="telelog_on_woocommerce_order_new" value="1"' . checked(1, esc_attr($checked), false) . '/>';
+        $html .= '<label for="on_woocommerce_order_new">' . __('Let you know when a new order in Woocommerce is submited.', 'telelog') . '</label>';
+
+        $this->hooks_sanitizer($html);
+    }
 }

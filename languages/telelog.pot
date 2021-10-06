@@ -164,3 +164,15 @@ msgstr ""
 #: inc/Telegram/PluginDeactivate.php:31
 msgid "Plugin deactivated"
 msgstr ""
+
+#: inc/Pages/Admin.php:188
+msgid "WooCommerce New order"
+msgstr ""
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:196
+msgid "Let you know when a new order in Woocommerce is submited."
+msgstr ""
+
+#: inc/Telegram/WooCommerce/WooCommerceOrderNew.php:37
+msgid "New WooCommerce order"
+msgstr ""

@@ -14,7 +14,7 @@ class Admin
         ['api_key', ''], ['chat_id', ''], ['on_post_publish', '1'],
         ['on_post_update', '1'], ['on_post_comment', '1'], ['on_login_fail', '1'],
         ['on_register_user', '1'], ['on_theme_switch', '1'], ['on_plugin_activate', '1'],
-        ['on_plugin_deactivate', '1'],
+        ['on_plugin_deactivate', '1'], ['on_woocommerce_order_new', '0'],
     ];
 
     public $callbacks;
@@ -181,6 +181,23 @@ class Admin
                 'section' => 'hooks_settings'
             ),
         );
+
+        $woocommerceArgs = array(
+            array(
+                'id' => 'telelog_on_woocommerce_order_new',
+                'title' => __('WooCommerce New order', 'telelog'),
+                'callback' => array($this->callbacks, 'telelog_on_woocommerce_order_new'),
+                'page' => $this->page,
+                'section' => 'hooks_settings'
+            ),
+        );
+
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+            foreach ($woocommerceArgs as $woocommerceArg) {
+                array_push($args, $woocommerceArg);
+            }
+        }
+
         $this->fields = $args;
     }
 }

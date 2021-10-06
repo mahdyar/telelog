@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-24T11:01:10+00:00\n"
-"PO-Revision-Date: 2021-10-02 17:03+0330\n"
+"PO-Revision-Date: 2021-10-06 12:51+0330\n"
 "X-Generator: Poedit 3.0\n"
 "X-Domain: telelog\n"
 "Last-Translator: \n"
@@ -168,3 +168,15 @@ msgstr "وقتی یک افزونه غیرفعال شد به من اطلاع بد
 #: inc/Telegram/PluginDeactivate.php:31
 msgid "Plugin deactivated"
 msgstr "افزونه غیرفعال شد"
+
+#: inc/Pages/Admin.php:188
+msgid "WooCommerce New order"
+msgstr "سفارش جدید ووکامرس"
+
+#: inc/Pages/Callbacks/AdminCallbacks.php:196
+msgid "Let you know when a new order in Woocommerce is submited."
+msgstr "وقتی یک سفارش جدید در ووکامرس ثبت شد به من اطلاع بده."
+
+#: inc/Telegram/WooCommerce/WooCommerceOrderNew.php:37
+msgid "New WooCommerce order"
+msgstr "سفارش جدید ووکامرس"

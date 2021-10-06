@@ -29,6 +29,9 @@ final class Init
             Telegram\ThemeSwitch::class,
             Telegram\PluginActivate::class,
             Telegram\PluginDeactivate::class,
+
+            // WooCommerce Hooks
+            Telegram\WooCommerce\WooCommerceOrderNew::class,
         ];
     }
 
