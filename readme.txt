@@ -7,7 +7,7 @@ Tags: activity log, wordpress activity logs, security audit log, audit log, user
 Requires PHP: 7.0
 Requires at least: 4.4
 Tested up to: 5.8
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 Keep track of everything happening on your WordPress in Telegram
 
@@ -19,6 +19,11 @@ This plugin is still under development and more hooks will be added soon, but fo
 * Post update
 * New comment
 * Login fail
+* New plugin activation
+* New plugin deactivation
+* Theme switch
+* New user registation
+* New WooCommerce order
 
 ### Set up
 1. Create a new Telegram bot. ([Learn more](https://core.telegram.org/bots#3-how-do-i-create-a-bot))

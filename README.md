@@ -10,6 +10,11 @@ This plugin is still under development and more hooks will be added soon, but fo
 - Post update
 - New comment
 - Login fail
+- New plugin activation
+- New plugin deactivation
+- Theme switch
+- New user registation
+- New WooCommerce order
 
 ### Set up
 

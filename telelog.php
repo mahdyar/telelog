@@ -9,7 +9,7 @@
  * Plugin URI: https://github.com/mahdyar/telelog
  * Description: Keep track of everything happening on your WordPress in Telegram.
 
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: Mahdyar Hasanpour
  * Author URI: https://mahdyar.me
  * License:           GPL-3.0+
